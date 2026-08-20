@@ -1,0 +1,15 @@
+# ─────────────────────────────────────────────────────────────────────
+#  Google AdSense — ads.txt
+#
+#  ⚠ नीचे pub-XXXXXXXXXXXXXXXX की जगह अपना असली AdSense पब्लिशर आईडी
+#     लिखें (केवल अंक वाला हिस्सा, "ca-" के बिना)। उदाहरण:
+#         google.com, pub-1234567890123456, DIRECT, f08c47fec0942fa0
+#
+#  ⚠ Replace pub-XXXXXXXXXXXXXXXX below with your real AdSense publisher
+#     ID (the numeric part only, without the "ca-" prefix).
+#
+#  यही आईडी index.html के EDIT ZONE में  ads.client  में भी होना चाहिए
+#  (वहाँ "ca-pub-" उपसर्ग सहित)। दोनों जगह मेल न खाने पर विज्ञापन नहीं चलेंगे।
+#  The last value is Google's fixed certification ID — do not change it.
+# ─────────────────────────────────────────────────────────────────────
+google.com, pub-XXXXXXXXXXXXXXXX, DIRECT, f08c47fec0942fa0

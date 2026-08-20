@@ -1,0 +1,21 @@
+{
+  "name": "TeacherBuddy — शिक्षक साथी",
+  "short_name": "TeacherBuddy",
+  "description": "राजस्थान के विद्यालय शिक्षकों के लिए निःशुल्क, ऑफ़लाइन सहायक।",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#FBFAF8",
+  "theme_color": "#0E6E5C",
+  "lang": "hi",
+  "categories": ["education", "productivity"],
+  "icons": [
+    {
+      "src": "icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}
