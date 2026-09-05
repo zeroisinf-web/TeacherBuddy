@@ -3,6 +3,8 @@
 राजस्थान के विद्यालय शिक्षकों के लिए निःशुल्क, ऑफ़लाइन सहायक।
 A free, offline toolkit for Rajasthan school teachers.
 
+**2.1 — 5 September 2026:** Multicolor interface with Rajasthan accents, category filters and correctly sized icons. Corrected Rajasthan salary defaults and added an in-app Sources & feature review page. See the [dated review](docs/SEPTEMBER-2026-REVIEW.md) and [complete APK inventory](docs/APK-INVENTORY.md) for evidence and remaining gaps.
+
 **Repository:** https://github.com/zeroisinf-web/TeacherBuddy
 **⬇️ Offline copy:** [TeacherBuddy.html](TeacherBuddy.html) — right-click → Save link as
 

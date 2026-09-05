@@ -562,14 +562,14 @@ const TB_DATA = {
 
 /* ─── 1. मूल जानकारी / Site meta ─────────────────────────────────────── */
 meta: {
-  version: "1.0",
+  version: "2.1",
   session: "2026-27",
-  updated: "20.08.2026",
+  updated: "05.09.2026",
   banner: {
-    hi: "iGOT कर्मयोगी अगस्त 2026 कोर्स — एनरोलमेंट 25 अगस्त तक, पूर्ण करने की अंतिम तिथि 30 अगस्त 2026।",
-    en: "iGOT Karmayogi August 2026 courses — enrol by 25 Aug, complete by 30 Aug 2026."
+    hi: "स्रोत समीक्षा: 5 सितंबर 2026 — सत्यापित दरें और लंबित पुष्टि अलग देखें।",
+    en: "Source review: 5 September 2026 — see verified rates and items still awaiting confirmation."
   },
-  bannerLink: "#/training"
+  bannerLink: "#/verification"
 },
 
 /* ─── 2. ताज़ा अपडेट / Latest updates ─────────────────────────────────
@@ -1399,12 +1399,13 @@ rates: {
     hi: "7वें वेतनमान पर महंगाई भत्ता 58% से बढ़ाकर 60% — प्रभावी 01.01.2026। जनवरी से अप्रैल 2026 का एरियर GPF खाते में तथा मई 2026 के वेतन से नकद देय।",
     en: "DA on the 7th Pay Scale raised from 58% to 60%, effective 01.01.2026. Arrears for Jan–Apr 2026 go to the GPF account; cash payment from the May 2026 salary."
   },
-  hra: { X:27, Y:18, Z:9 },
+  hra: { Y:20, Z:10, N:0 },
   hraNote: {
-    hi: "श्रेणी X = महानगर · श्रेणी Y = जयपुर, जोधपुर, कोटा, बीकानेर, अजमेर · श्रेणी Z = शेष सभी।",
-    en: "Class X = metros · Class Y = Jaipur, Jodhpur, Kota, Bikaner, Ajmer · Class Z = all others."
+    hi: "राजस्थान: Y श्रेणी 20%, Z श्रेणी 10%, प्रभावी 01.11.2024। जयपुर, जोधपुर, कोटा, बीकानेर एवं अजमेर की अधिसूचित सीमा Y में है; पात्रता आदेश से जाँचें।",
+    en: "Rajasthan: Y cities 20%, Z cities 10%, effective 01.11.2024. Notified limits of Jaipur, Jodhpur, Kota, Bikaner and Ajmer are Y; check eligibility against the order."
   },
-  gpfMinPercent: 6,
+  gpfMinPercent: 6, // legacy override fallback only; published SIPF slabs are used by default
+  gpfSlabs: [{upto:23100,amount:1450},{upto:28500,amount:1625},{upto:38500,amount:2100},{upto:51500,amount:2850},{upto:62000,amount:3575},{upto:72000,amount:4200},{upto:80000,amount:4800},{upto:116000,amount:6150},{upto:167000,amount:8900},{upto:9999999,amount:10500}],
   npsEmployeePercent: 10,
   npsGovtPercent: 14,
   surrenderDays: 15,
@@ -1413,16 +1414,16 @@ rates: {
   siSlabs: [
     { upto:22000,  premium:800 },
     { upto:28500,  premium:1200 },
-    { upto:46500,  premium:1800 },
+    { upto:46500,  premium:2200 },
     { upto:72000,  premium:3000 },
     { upto:9999999, premium:5000 }
   ],
   /* RGHS — मासिक चिकित्सा अंशदान */
   rghsSlabs: [
-    { upto:18000,  amount:135 },
-    { upto:33500,  amount:220 },
-    { upto:54000,  amount:330 },
-    { upto:9999999, amount:440 }
+    { upto:18000,  amount:265 },
+    { upto:33500,  amount:440 },
+    { upto:54000,  amount:658 },
+    { upto:9999999, amount:875 }
   ],
 
   /* आयकर — वित्तीय वर्ष 2026-27 (निर्धारण वर्ष 2027-28) */
@@ -1456,8 +1457,8 @@ rates: {
       ]
     },
     note: {
-      hi: "बजट 2026 में स्लैब दरों में कोई परिवर्तन नहीं — वित्तीय वर्ष 2025-26 की दरें ही 2026-27 पर लागू। यह गणना केवल अनुमान हेतु है; वास्तविक कर देयता आपके संपूर्ण आय-विवरण पर निर्भर करेगी।",
-      en: "Budget 2026 made no change to the slabs — the FY 2025-26 rates continue for FY 2026-27. This calculation is indicative only; actual liability depends on your full income statement."
+      hi: "केवल 60 वर्ष से कम निवासी वेतनभोगी, सामान्य वेतन आय और ₹50 लाख तक का सरल अनुमान। नई व्यवस्था में सीमांत राहत शामिल। 80D में स्वयं/परिवार की ₹25,000 सीमा; वरिष्ठ माता-पिता, अन्य आय, विशेष दर या जटिल छूट के लिए आधिकारिक कैलकुलेटर प्रयोग करें। FY 2026-27 की अंतिम देयता नवीन अधिनियम/वेतन कार्यालय से मिलाएँ।",
+      en: "Simple estimate for a resident salaried person under 60, normal salary income up to ₹50 lakh. Includes new-regime rebate marginal relief. 80D is limited to ₹25,000 for self/family; senior parents, other income, special rates and complex exemptions need the official calculator. Confirm FY 2026-27 final liability with the current Act/payroll office."
     }
   },
 
@@ -2128,7 +2129,7 @@ ads: {
 
 /* ─── 28. निजता नीति / Privacy policy ────────────────────────────── */
 privacy: {
-  updated: "20.08.2026",
+  updated: "05.09.2026",
   intro: {
     hi:"TeacherBuddy शिक्षकों की सहायता हेतु बनाई गई एक निःशुल्क सेवा है। यह पृष्ठ स्पष्ट करता है कि आपकी कौन-सी जानकारी कहाँ रहती है और कहाँ नहीं जाती।",
     en:"TeacherBuddy is a free service built to help teachers. This page explains exactly what happens to your information — and what does not."
@@ -3544,13 +3545,13 @@ function salary(){
         '<div class="field"><label for="sHra">'+esc(L({hi:"मकान किराया भत्ता — शहर श्रेणी",en:"HRA — city class"}))+'</label><select id="sHra">'+
           '<option value="Z">Z — '+esc(L({hi:"ग्रामीण / शेष",en:"Rural / others"}))+' ('+(r.hra&&r.hra.Z)+'%)</option>'+
           '<option value="Y">Y — '+esc(L({hi:"जयपुर, जोधपुर, कोटा, बीकानेर, अजमेर",en:"Jaipur, Jodhpur, Kota, Bikaner, Ajmer"}))+' ('+(r.hra&&r.hra.Y)+'%)</option>'+
-          '<option value="X">X — '+esc(L({hi:"महानगर",en:"Metro"}))+' ('+(r.hra&&r.hra.X)+'%)</option></select></div>'+
+          '<option value="N">'+esc(L({hi:"HRA देय नहीं / सरकारी आवास",en:"No HRA / government accommodation"}))+' (0%)</option></select></div>'+
         '<div class="field"><label for="sPen">'+esc(L({hi:"पेंशन योजना",en:"Pension scheme"}))+'</label><select id="sPen">'+
-          '<option value="gpf">'+esc(L({hi:"OPS / GPF (मूल वेतन का "+(r.gpfMinPercent||6)+"%)",en:"OPS / GPF ("+(r.gpfMinPercent||6)+"% of basic)"}))+'</option>'+
+          '<option value="gpf">'+esc(L({hi:"OPS / GPF — SIPF प्रकाशित स्लैब",en:"OPS / GPF — SIPF published slabs"}))+'</option>'+
           '<option value="nps">'+esc(L({hi:"NPS (मूल + DA का "+(r.npsEmployeePercent||10)+"%)",en:"NPS ("+(r.npsEmployeePercent||10)+"% of basic + DA)"}))+'</option></select></div>'+
         '<div class="field"><label for="sTds">'+esc(L({hi:"मासिक आयकर कटौती (₹)",en:"Monthly income tax (₹)"}))+'</label><input type="number" id="sTds" value="0" min="0"></div>'+
       '</div>'+
-      '<div id="sOut"></div>'+
+      '<p class="hint">'+esc(L(r.hraNote))+'</p><div class="formgrid">'+fld('sSiActual',L({hi:'वास्तविक SI ₹ (वैकल्पिक)',en:'Actual SI ₹ (optional)'}),'number','min="0" placeholder="Auto"')+fld('sRghsActual',L({hi:'वास्तविक RGHS ₹ (वैकल्पिक)',en:'Actual RGHS ₹ (optional)'}),'number','min="0" placeholder="Auto"')+fld('sPenActual',L({hi:'वास्तविक GPF / NPS ₹ (वैकल्पिक)',en:'Actual GPF / NPS ₹ (optional)'}),'number','min="0" placeholder="Auto"')+'</div><div id="sOut"></div>'+
       '<div class="btnrow mt"><button class="btn" id="sPrint">'+svg("doc")+' '+esc(L({hi:"पे-स्लिप प्रिंट करें",en:"Print pay slip"}))+'</button></div>'+
       '<p class="xs muted mt">'+esc(L({hi:"यह अनुमानित गणना है। SI एवं RGHS स्लैब तथा GPF दर विभागीय अधिसूचना अनुसार बदल सकती हैं — अद्यतन केंद्र से बदल लें।",en:"This is an estimate. SI and RGHS slabs and the GPF rate can change by departmental notification — update them in the Update Center."}))+'</p>'+
     '</div>'+
@@ -3786,10 +3787,10 @@ const HOOKS = {
       const daR = parseFloat(g("sDa").value); const da = Math.round(basic*(isNaN(daR)?0:daR)/100);
       const city = g("sHra").value; const hraR = (r.hra||{})[city]||0; const hra = Math.round(basic*hraR/100);
       const gross = basic+da+hra;
-      const si = slab(r.siSlabs, basic, "premium");
-      const rghs = slab(r.rghsSlabs, basic, "amount");
+      const si = g("sSiActual").value.trim() ? Math.max(0,+g("sSiActual").value||0) : slab(r.siSlabs, basic, "premium");
+      const rghs = g("sRghsActual").value.trim() ? Math.max(0,+g("sRghsActual").value||0) : slab(r.rghsSlabs, basic, "amount");
       const isNps = g("sPen").value==="nps";
-      const pen = isNps ? Math.round((basic+da)*(r.npsEmployeePercent||10)/100) : Math.round(basic*(r.gpfMinPercent||6)/100);
+      const pen = g("sPenActual").value.trim() ? Math.max(0,+g("sPenActual").value||0) : isNps ? Math.round((basic+da)*(r.npsEmployeePercent||10)/100) : (r.gpfSlabs ? slab(r.gpfSlabs, basic, "amount") : Math.round(basic*(r.gpfMinPercent||6)/100));
       const tds = +g("sTds").value||0;
       const ded = si+rghs+pen+tds;
       const net = gross-ded;
@@ -3808,7 +3809,7 @@ const HOOKS = {
         ])+'</div></div>';
     }
     lv.addEventListener("change",stages);
-    ["sBasic","sDa","sHra","sPen","sTds"].forEach(id=>{ g(id).addEventListener("input",calc); g(id).addEventListener("change",calc); });
+    ["sBasic","sDa","sHra","sPen","sTds","sSiActual","sRghsActual","sPenActual"].forEach(id=>{ g(id).addEventListener("input",calc); g(id).addEventListener("change",calc); });
     stages();
 
     g("sPrint").addEventListener("click",()=>{
@@ -3864,15 +3865,17 @@ const HOOKS = {
     /* income tax */
     const tax = ()=>{
       const t=(D().rates||{}).tax||{}; if(!t.newRegime) return;
-      const gross=+g("tGross").value||0;
-      const c80=Math.min(150000,+g("t80c").value||0), d80=+g("t80d").value||0;
-      const ccd=+g("t80ccd").value||0, home=+g("tHome").value||0, hra=+g("tHra").value||0;
+      const gross=Math.max(0,+g("tGross").value||0);
+      if(gross>5000000){g("tOut").innerHTML=noteBox("warn",L({hi:"विशेष कर गणना आवश्यक",en:"Detailed tax calculation required"}),esc(L({hi:"₹50 लाख से अधिक आय के लिए अधिभार सहित आधिकारिक कर कैलकुलेटर प्रयोग करें।",en:"Above ₹50 lakh, use the official calculator including surcharge."})));return;}
+      const c80=Math.min(150000,Math.max(0,+g("t80c").value||0)), d80=Math.min(25000,Math.max(0,+g("t80d").value||0));
+      const ccd=Math.min(50000,Math.max(0,+g("t80ccd").value||0)), home=Math.min(200000,Math.max(0,+g("tHome").value||0)), hra=Math.max(0,+g("tHra").value||0);
       const oldTaxable=Math.max(0, gross - t.oldRegime.stdDeduction - c80 - d80 - ccd - home - hra);
       const newTaxable=Math.max(0, gross - t.newRegime.stdDeduction);
       let oldT=taxOn(oldTaxable, t.oldRegime);
       if(oldTaxable<=t.oldRegime.rebateLimit) oldT=Math.max(0, oldT-t.oldRegime.rebateMax);
       let newT=taxOn(newTaxable, t.newRegime);
       if(newTaxable<=t.newRegime.rebateLimit) newT=Math.max(0, newT-t.newRegime.rebateMax);
+      else newT=Math.min(newT,newTaxable-t.newRegime.rebateLimit); // rebate marginal relief on normal-rate income
       const oldTot=Math.round(oldT*(1+(t.cess||4)/100)), newTot=Math.round(newT*(1+(t.cess||4)/100));
       const better = newTot<oldTot ? L({hi:"नई कर व्यवस्था",en:"New regime"}) : (oldTot<newTot ? L({hi:"पुरानी कर व्यवस्था",en:"Old regime"}) : L({hi:"दोनों समान",en:"Both equal"}));
       const save = Math.abs(oldTot-newTot);
@@ -5272,6 +5275,31 @@ window.PAGE_HOOKS = Object.assign(window.PAGE_HOOKS||{}, {tools:wireTools, updat
   }
 }
 
+/* Google One-inspired whitespace and rounded surfaces, with original Rajasthan accents. */
+:root{--paper:#fff;--surface:#fff;--surface-2:#f5f7fa;--surface-3:#edf1f7;--line:#e5e9f0;--line-strong:#c9d2e0;--ink:#202124;--ink-2:#3d4655;--muted:#586476;--muted-2:#657084;--accent:#1967d2;--accent-ink:#185abc;--accent-soft:#eaf2ff;--accent-line:#c6dafa;--amber:#966019;--amber-soft:#fff5dc;--red:#b54237;--red-soft:#fff0eb;--blue:#1967d2;--blue-soft:#eaf2ff;--violet:#7054a0;--violet-soft:#f3eefa;--radius:20px;--radius-lg:28px;--maxw:1440px;--nav-w:230px;--serif:var(--sans)}
+/* SVG intrinsic dimensions otherwise expand to the width of an accordion summary. */
+svg[viewBox="0 0 24 24"]{width:20px;height:20px;max-width:20px;max-height:20px;flex:0 0 20px;vertical-align:middle}
+.acc>summary>svg,summary>svg{width:20px;height:20px;max-width:20px;max-height:20px;flex:0 0 20px;display:inline-block}
+.acc>summary{align-items:center;gap:12px;min-height:56px}
+.tb-work .feature .ic svg{width:22px;height:22px;max-width:22px;max-height:22px}
+.hdr{background:#ffffffed;backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.hdr-in{max-width:1480px}.brand-name{font-family:var(--sans);font-size:20px;letter-spacing:-.8px;font-weight:650;color:#1967d2}.brand-name b{color:#b54237;font-weight:650}.brand-mark{background:conic-gradient(from 40deg,#d95b4b,#ecb653,#2e8977,#397cda,#d95b4b);border-radius:10px;box-shadow:none}.brand-mark svg{width:18px;height:18px}
+.searchbtn{border-radius:24px;background:#f6f8fc;box-shadow:none}.iconbtn{border-radius:12px}.langtog{background:#f5f7fa;border-radius:12px}.langtog button{border-radius:9px}.langtog button[aria-pressed=true]{color:var(--accent)}
+.shell{gap:34px}.nav{border-inline-end:1px solid var(--line);padding-inline-end:15px}.nav a{border-radius:22px;padding:10px 13px;margin-bottom:3px;font-size:13px}.nav a.on{background:#eaf2ff;color:#185abc}.nav-label{letter-spacing:.055em;color:#69758a}.nav a .ic svg{width:18px;height:18px}.nav-group:nth-child(4n+2) a .ic{color:#2d806c}.nav-group:nth-child(4n+3) a .ic{color:#b54237}.nav-group:nth-child(4n+4) a .ic{color:#946318}
+.btn,.tb-work .btn{border-radius:24px;padding:10px 18px;box-shadow:none;min-height:44px;font-weight:600}.btn.pri,.tb-work .btn.primary{background:#1967d2;border-color:#1967d2;color:white}.btn:hover,.tb-work .btn:hover{box-shadow:0 2px 8px #20345010}.btn:active{transform:translateY(1px)}
+.card,.tile,.rows,.acc{border-radius:20px;box-shadow:none}.tile:hover,.card:hover{box-shadow:none}.acc{margin-bottom:12px}.card-ic{border-radius:12px;width:38px;height:38px}.note{border-radius:16px}.page-title{letter-spacing:-1px}.result-box{border-radius:18px;background:#edf4ff;border-color:#cfdef6}.result-box .big{color:#185abc}
+.tb-work .status-line{font-size:12px;margin:0 0 20px;color:#647086}.tb-work .welcome{background:linear-gradient(180deg,#faf6ef 0%,#fff 92%);color:var(--ink);border-radius:30px;padding:45px 48px 42px;text-align:center;isolation:isolate;margin-bottom:24px;overflow:hidden}
+.tb-work .welcome:before,.tb-work .welcome:after{content:"";position:absolute;z-index:-1;width:83px;height:140px;top:45px;border:1px solid #c98c6038;border-radius:80px 80px 5px 5px;box-shadow:inset 0 0 0 8px #fff9,inset 0 0 0 9px #c98c6024}
+.tb-work .welcome:before{left:-34px;transform:rotate(-12deg)}.tb-work .welcome:after{right:-34px;transform:rotate(12deg)}
+.tb-work .welcome h1{font-size:clamp(30px,4.2vw,50px);font-weight:650;letter-spacing:-1.8px;line-height:1.28;max-width:810px;margin:20px auto}.tb-work .welcome p{font-size:16px;line-height:1.8;color:#526074;max-width:610px;margin:0 auto 24px}.tb-work .welcome .btn{background:#1967d2;color:#fff;padding:12px 23px}.tb-work .welcome .btn.secondary{background:white;color:#185abc;border:1px solid #d9e3f1}.hero-actions{display:flex;gap:10px;justify-content:center;flex-wrap:wrap}.multicolor-text{color:#1967d2;background:linear-gradient(95deg,#2166c4 0%,#4777cd 38%,#2b826f 69%,#a55634 100%);background-clip:text;-webkit-background-clip:text;-webkit-text-fill-color:transparent}.hero-label{display:inline-flex;gap:9px;align-items:center;color:#8e5a37;font-size:13px;font-weight:650;letter-spacing:.025em}.rajasthan-flower{display:inline-block;width:18px;height:18px;background:radial-gradient(circle at 25% 25%,#cc7662 24%,transparent 26%),radial-gradient(circle at 75% 25%,#d8a145 24%,transparent 26%),radial-gradient(circle at 25% 75%,#2b826f 24%,transparent 26%),radial-gradient(circle at 75% 75%,#4777cd 24%,transparent 26%);transform:rotate(45deg);margin:0 3px}.hero-footnote{display:flex;align-items:center;justify-content:center;gap:8px;margin-top:17px;font-size:12px;color:#647086}.hero-footnote .dot{width:6px;height:6px;border-radius:50%;background:#2b826f}
+.tb-work .onboarding .panel{padding:17px 21px;background:#f8f9fc;display:grid;grid-template-columns:1fr auto;align-items:center;gap:0 14px;border:0}.tb-work .onboarding h2{font-size:16px;margin-bottom:4px}.tb-work .onboarding .steps-row{font-size:12px;margin:0;gap:8px}.tb-work .onboarding .panel>.btn{grid-column:2;grid-row:1/3;background:white}.tb-work .stats-row{gap:14px;margin:22px 0 30px}.tb-work .stat-card{border:0;background:#f5f8ff;border-radius:18px;padding:18px 21px}.tb-work .stat-card:nth-child(2){background:#edf7f2}.tb-work .stat-card:nth-child(3){background:#fff6e3}.tb-work .stat-card b{color:#2264b9;font-size:29px}.tb-work .stat-card:nth-child(2) b{color:#276f5d}.tb-work .stat-card:nth-child(3) b{color:#90601a}.tb-work .stat-card span{color:#566175}
+.tb-work .feature-grid{gap:16px;margin-top:20px}.tb-work .feature{--tile-color:#1967d2;--tile-bg:#eef4ff;--icon-bg:#dbe9ff;border:1px solid transparent;background:var(--tile-bg);border-radius:24px;padding:23px;gap:11px;min-height:202px;position:relative}.tb-work .feature:nth-child(4n+2){--tile-color:#287864;--tile-bg:#eef7f2;--icon-bg:#d8eee3}.tb-work .feature:nth-child(4n+3){--tile-color:#ab483a;--tile-bg:#fdf1ed;--icon-bg:#f8dfd5}.tb-work .feature:nth-child(4n+4){--tile-color:#90601a;--tile-bg:#fff8e8;--icon-bg:#f5e8bf}.tb-work .feature .ic,.tb-work .feature:nth-child(n) .ic{color:var(--tile-color);background:var(--icon-bg);width:44px;height:44px;padding:11px;border-radius:14px}.tb-work .feature strong{font-size:17px;font-weight:650;letter-spacing:-.25px}.tb-work .feature small{font-size:13px;color:#556173;line-height:1.65}.tb-work .feature .badge{font-size:11px;color:var(--tile-color);background:#ffffffbd;padding:3px 9px;margin-top:auto}.tb-work .feature:hover{transform:translateY(-3px);border-color:var(--tile-color);box-shadow:0 7px 20px #28497009}
+.tb-work .list-head h2{font-size:26px;letter-spacing:-.75px}.tb-work .panel{border-radius:22px}.tb-work input,.tb-work select,.tb-work textarea{border-color:#ccd5e2;border-radius:12px;background:#fff}.tb-work input[type=search]{background:#f6f8fc;border-color:#e4e9f2;border-radius:24px;padding:13px 18px}.tb-work .mini-nav a{border-radius:18px;background:#f3f6fc;color:#49617e}.filter-pills{display:flex;gap:7px;flex-wrap:wrap;margin:17px 0 7px}.filter-pills button{min-height:40px;padding:8px 18px;border:1px solid #e2e6ed;background:#fff;border-radius:24px;cursor:pointer;color:#526074;font-size:13px;font-weight:600}.filter-pills button[aria-pressed=true]{background:#e8f0fe;color:#185abc;border-color:#c7d9f6}.filter-pills button:focus-visible{outline:2px solid #1967d2;outline-offset:2px}.source-strip{padding:15px 20px;border:1px solid #e4e9f0;background:#fafbfe;border-radius:16px;display:flex;align-items:center;justify-content:space-between;gap:15px;margin:18px 0;font-size:13px;color:#526074}.source-strip a{font-weight:600}
+.ftr{background:#f8f9fb;margin-top:24px}.ftr-in{grid-template-columns:repeat(auto-fit,minmax(165px,1fr));gap:26px}.ftr a{font-size:12px}.ftr-legal{font-size:11px;color:#697487}
+@media(max-width:960px){.shell{gap:0}.nav{background:#fff;border-inline-end:1px solid var(--line)}.tb-work .welcome{padding:34px 24px}.tb-work .welcome h1{font-size:38px}.tb-work .welcome p{font-size:15px}}
+@media(max-width:600px){.tb-work .welcome{border-radius:23px;padding:30px 20px}.tb-work .welcome h1{font-size:32px;letter-spacing:-.9px}.tb-work .welcome p{font-size:14px}.hero-label{font-size:11px}.hero-footnote{font-size:11px}.tb-work .feature-grid{gap:11px}.tb-work .feature{padding:17px 14px;border-radius:19px;min-height:204px}.tb-work .feature strong{font-size:15px}.tb-work .feature small{font-size:12px}.tb-work .onboarding .panel{display:block;padding:16px}.tb-work .onboarding .steps-row{margin:7px 0 12px}.tb-work .onboarding .panel>.btn{font-size:12px;min-height:38px;padding:7px 13px}.tb-work .stats-row{gap:8px}.tb-work .stat-card{padding:13px 12px}.tb-work .stat-card span{font-size:11px}.tb-work .list-head h2{font-size:22px}.tb-work .list-head>.btn{padding:8px 12px;font-size:12px}.source-strip{align-items:flex-start;flex-direction:column;gap:6px}.filter-pills{gap:5px}.filter-pills button{font-size:12px;padding:7px 12px}.ftr-in{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media print{.multicolor-text{-webkit-text-fill-color:initial;background:none;color:#111}.hero-actions,.filter-pills,.source-strip{display:none}}
+
 </style>
 <script>
 /* Original TeacherBuddy workflows. No APK code, artwork or question papers are bundled. */
@@ -5755,7 +5783,7 @@ window.PAGE_HOOKS = Object.assign(window.PAGE_HOOKS||{}, {tools:wireTools, updat
     return f ? tr(f[2], f[3]) : "";
   };
   function cards(list) {
-    return `<div class="feature-grid">${list.map((f) => `<a class="feature" href="#/${f[0]}" data-feature-text="${esc(f.slice(2, 6).join(" ").toLowerCase())}"><span class="ic" aria-hidden="true">${svg(f[1])}</span><strong>${esc(tr(f[2], f[3]))}</strong><small>${esc(tr(f[4], f[5]))}</small><span class="badge">${tr("ऑफ़लाइन", "Offline")}</span></a>`).join("")}</div>`;
+    return `<div class="feature-grid">${list.map((f) => `<a class="feature" href="#/${f[0]}" data-feature-category="${f[6]}" data-feature-text="${esc(f.slice(2, 6).join(" ").toLowerCase())}"><span class="ic" aria-hidden="true">${svg(f[1])}</span><strong>${esc(tr(f[2], f[3]))}</strong><small>${esc(tr(f[4], f[5]))}</small><span class="badge">${tr("ऑफ़लाइन", "Offline")}</span></a>`).join("")}</div>`;
   }
   function wrap(id, body) {
     return `<div class="tb-work"><div class="status-line"><span>${esc(state.profile.school || tr("मेरा विद्यालय", "My school"))} · ${esc(state.profile.session)}</span><span>${tr("डेटा इस डिवाइस पर रहता है", "Data stays on this device")}</span></div>${id === "home" ? "" : `<div class="mini-nav"><a href="#/home">${tr("← होम", "← Home")}</a><a href="#/students">${title("students")}</a><a href="#/backup">${title("backup")}</a></div><h1 style="margin-bottom:12px">${esc(title(id))}</h1>`}<div id="workspaceError" role="alert">${storageError ? esc(storageError) : ""}</div>${body}</div>`;
@@ -5799,8 +5827,8 @@ window.PAGE_HOOKS = Object.assign(window.PAGE_HOOKS||{}, {tools:wireTools, updat
       );
     return wrap(
       "home",
-      `<section class="welcome"><span class="badge">${tr("राजस्थान शिक्षक साथी · ऑफ़लाइन", "For Rajasthan teachers · Offline workspace")}</span><h1>${tr("आज का काम, आसानी से।", "A little less paperwork.\nA little more teaching.")}</h1><p>${tr("उपस्थिति से पोर्टफोलियो तक — आपके विद्यालय का रोज़ का काम, एक सरल जगह पर।", "From attendance to portfolios, keep your school day organised in one simple place.")}</p><a class="btn" href="#/${students().length ? "attendance" : "students"}">${svg("users")}${students().length ? tr("आज की उपस्थिति भरें", "Mark today’s attendance") : tr("शुरू करें: विद्यार्थी जोड़ें", "Start here: add your students")}</a></section>
-${!state.profile.school ? panel(tr("पहली बार उपयोग कर रहे हैं?", "New here?"), `<div class="steps-row"><span><b>1</b>${tr("विद्यालय व सत्र चुनें", "Set school & session")}</span><span><b>2</b>${tr("विद्यार्थी जोड़ें", "Add students")}</span><span><b>3</b>${tr("काम सहेजें और बैकअप लें", "Save your work & back it up")}</span></div><a class="btn" href="#/backup">${tr("विद्यालय सेट करें", "Set up my school")}</a>`) : ""}
+      `<section class="welcome"><div class="hero-label"><span class="rajasthan-flower" aria-hidden="true"></span>${tr("पधारो सा · राजस्थान शिक्षक साथी", "Padharo sa · Made for Rajasthan teachers")}</div><h1>${tr('विद्यालय के हर काम का<br><span class="multicolor-text">एक सरल साथी।</span>', 'More time to teach.<br><span class="multicolor-text">A simpler school day.</span>')}</h1><p>${tr("उपस्थिति, पढ़ाई और विद्यालय के काम—सब व्यवस्थित। आपके लिए आसान, आपके समय का साथी।", "Attendance, learning and school paperwork, thoughtfully organised. Simple tools for the work that matters.")}</p><div class="hero-actions"><a class="btn" href="#/${students().length ? "attendance" : "students"}">${svg("users")}${students().length ? tr("आज की उपस्थिति भरें", "Mark today’s attendance") : tr("विद्यार्थी जोड़कर शुरू करें", "Start with your students")}</a><a class="btn secondary" href="#/resources">${tr("सभी सुविधाएँ", "Explore all resources")}</a></div><div class="hero-footnote"><span class="dot"></span>${tr("ऑफ़लाइन टूल · हिन्दी और English · निःशुल्क", "Offline tools · Hindi & English · Free to use")}</div></section>
+${!state.profile.school ? '<div class="onboarding">'+panel(tr("पहली बार उपयोग कर रहे हैं?", "New here?"), `<div class="steps-row"><span><b>1</b>${tr("विद्यालय व सत्र चुनें", "Set school & session")}</span><span><b>2</b>${tr("विद्यार्थी जोड़ें", "Add students")}</span><span><b>3</b>${tr("काम सहेजें और बैकअप लें", "Save your work & back it up")}</span></div><a class="btn" href="#/backup">${tr("विद्यालय सेट करें", "Set up my school")}</a>`)+'</div>' : ""}
 <div class="stats-row"><div class="stat-card"><b>${students().length}</b><span>${tr("विद्यार्थी", "Students")}</span></div><div class="stat-card"><b>${totals}</b><span>${tr("आज उपस्थित", "Present today")}</span></div><div class="stat-card"><b>${due.length}</b><span>${tr("आज तक करने हैं", "Tasks due")}</span></div></div>
 ${
   due.length
@@ -5817,7 +5845,7 @@ ${
     : ""
 }
 <div class="list-head"><h2>${tr("आपको क्या करना है?", "What would you like to do?")}</h2>${button(tr("बड़ा अक्षर", "Larger text"), "large", "search")}</div>${input("featureSearch", tr("टूल खोजें — हिन्दी या English", "Find a tool — Hindi or English"), "", "search", 'placeholder="उपस्थिति, attendance, PTM…" class="search-tools"')}
-${cards(features)}<div id="noFeatures" hidden>${empty(tr("कोई टूल नहीं मिला। दूसरा शब्द खोजें।", "No tools found. Try another word."))}</div>
+<div class="filter-pills" role="group" aria-label="${tr('सुविधा वर्ग','Feature categories')}">${[['all','सभी','All tools'],['daily','रोज़ के काम','Daily work'],['classroom','कक्षा व पढ़ाई','Classroom'],['office','विद्यालय कार्यालय','School office']].map(([id,hi,en])=>`<button type="button" data-category="${id}" aria-pressed="${id==='all'}">${tr(hi,en)}</button>`).join('')}</div>${cards(features)}<div id="noFeatures" hidden>${empty(tr("कोई टूल नहीं मिला। दूसरा शब्द खोजें।", "No tools found. Try another word."))}</div>
 ${panel(tr("पहले से मौजूद सभी सुविधाएँ", "All your existing tools"), `<p>${tr("वेतन, अवकाश पत्र, पाठ योजना, सरकारी पोर्टल और अन्य संसाधन।", "Salary, leave letters, lesson planning, government portals and other resources.")}</p><div class="toolbar"><a class="btn" href="#/resources">${tr("सभी संसाधन देखें", "Browse all resources")}</a><a class="btn" href="#/letters">${tr("पत्र बनाएँ", "Create a letter")}</a><a class="btn" href="#/salary">${tr("वेतन कैलकुलेटर", "Salary calculators")}</a><a class="btn" href="#/portals">${tr("सरकारी पोर्टल · इंटरनेट", "Government portals · Internet")}</a></div>`)}
 ${hint(tr("काम सहेजने के लिए “सहेजें” दबाएँ। ब्राउज़र डेटा मिटने पर रिकॉर्ड मिट सकते हैं—नियमित बैकअप लें। सरकारी पोर्टल और बाहरी PDF के लिए इंटरनेट चाहिए।", "Press Save to keep your work. Clearing browser data can erase records—download backups regularly. Government portals and external PDFs need internet."))}`,
     );
@@ -8478,10 +8506,11 @@ ${hint(tr("काम सहेजने के लिए “सहेजें�
   Object.assign(window.PAGE_HOOKS, {
     home() {
       const search = $("#featureSearch");
-      search.addEventListener("input", () => {
+      let category = 'all';
+      const filter = () => {
         let count = 0;
         document.querySelectorAll("[data-feature-text]").forEach((card) => {
-          const hit = card.dataset.featureText.includes(
+          const hit = (category==='all'||card.dataset.featureCategory===category) && card.dataset.featureText.includes(
             search.value.trim().toLowerCase(),
           );
           card.hidden = !hit;
@@ -8489,7 +8518,13 @@ ${hint(tr("काम सहेजने के लिए “सहेजें�
           if (hit) count++;
         });
         $("#noFeatures").hidden = !!count;
-      });
+      };
+      search.addEventListener("input", filter);
+      document.querySelectorAll('[data-category]').forEach(button=>button.addEventListener('click',()=>{
+        category=button.dataset.category;
+        document.querySelectorAll('[data-category]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
+        filter();
+      }));
     },
     students: rosterHook,
     attendance: attendanceHook,
@@ -8567,6 +8602,29 @@ ${hint(tr("काम सहेजने के लिए “सहेजें�
     questions,
     validDate,
   };
+})();
+
+(() => {
+  const A = window.__TB;
+  const tr = (hi,en) => A.L({hi,en});
+  const sources = [
+    ['HRA','Y 20% · Z 10% · 01-11-2024','https://finance.rajasthan.gov.in/PDFDOCS/RULES/14114.pdf'],
+    ['DA','60% · 01-01-2026','https://finance.rajasthan.gov.in/PDFDOCS/RULES/14945.pdf'],
+    ['SI','₹800 / 1,200 / 2,200 / 3,000 / 5,000','https://sipf.rajasthan.gov.in/SIPremiumRates.aspx'],
+    ['RGHS','₹265 / 440 / 658 / 875 · 01-04-2022','https://rghs.rajasthan.gov.in/Circular_10.pdf'],
+    ['GPF','SIPF subscription slabs · March 2018','https://sipf.rajasthan.gov.in/GPFSubscriptionSlabs.aspx'],
+    ['PM POSHAN','₹6.78 / ₹10.17 · 01-05-2025','https://pmposhan.education.gov.in/Meal%20Provision.html'],
+  ];
+  const strip = () => `<div class="source-strip"><span>${tr('स्रोत जाँच: 5 सितम्बर 2026 · जानकारी अपने-आप अपडेट नहीं होती।','Sources reviewed: 5 September 2026 · Information does not update automatically.')}</span><a href="#/verification">${tr('स्रोत और बाकी सुविधाएँ देखें','View sources and remaining features')}</a></div>`;
+  A.NAV[A.NAV.length-1].items.push({id:'verification',icon:'check',t:{hi:'स्रोत और सुविधा जाँच',en:'Sources & feature review'}});
+  window.PAGES.verification = () => `<div class="tb-work">${A.pageHead(tr('राजस्थान · समीक्षा','Rajasthan · review'),tr('स्रोत और सुविधा जाँच','Sources & feature review'),tr('जाँच की तारीख: 5 सितम्बर 2026','Review date: 5 September 2026'))}
+    <section class="panel"><h2>${tr('किन दरों के स्रोत जाँचे गए?','Which rate sources were checked?')}</h2><p>${tr('नीचे दिए स्रोतों से डिफ़ॉल्ट दरें मिलाई गई हैं। प्रभावी तारीख हर पंक्ति में है। बाद के आदेश और आपके वेतन बिल की वास्तविक कटौती लागू हो सकती है; कैलकुलेटर में वास्तविक कटौती भर सकते हैं।','Default rates were checked against the sources below. Effective dates are shown where available. Later orders and your actual payroll deductions may apply; actual deductions can be entered in the calculator.')}</p>${sources.map(s=>`<div class="source-strip"><strong>${s[0]}</strong><span>${s[1]}</span><a href="${s[2]}" target="_blank" rel="noopener noreferrer">${tr('आधिकारिक स्रोत ↗','Official source ↗')}</a></div>`).join('')}</section>
+    <section class="panel"><h2>${tr('ताज़ा आदेश और पुष्टि बाकी','Recent orders and checks still pending')}</h2><p>${tr('वित्त विभाग की सूची में 3 सितम्बर 2026 का RSR संशोधन उपलब्ध है। लागू शर्तें मूल आदेश में देखें। शिविरा 2026–27 की सभी तिथियाँ, प्रशिक्षण समय-सीमाएँ और हर पुराने लिंक की पूर्ण पुष्टि बाकी है। आयकर टूल सीमित अनुमान है; चालू कर वर्ष के अंतिम नियम की पुष्टि करें।','The Finance Department lists an RSR amendment dated 3 September 2026. Read the original order for its conditions. All Shivira 2026–27 dates, training deadlines and every legacy link have not been fully verified. The tax tool is a limited estimate; confirm final rules for the current tax year.')}</p><p><a href="https://finance.rajasthan.gov.in/website/Default.aspx" target="_blank" rel="noopener noreferrer">${tr('वित्त विभाग के आदेश ↗','Finance Department orders ↗')}</a> · <a href="https://rajshaladarpan.rajasthan.gov.in/" target="_blank" rel="noopener noreferrer">Shala Darpan ↗</a> · <a href="https://www.incometax.gov.in/iec/foportal/" target="_blank" rel="noopener noreferrer">Income Tax ↗</a></p></section>
+    <section class="panel"><h2>${tr('CCE Guru APK: क्या शामिल है?','CCE Guru APK: what is included?')}</h2><p>${tr('74 HTML फ़ाइलों और 52 activity नामों की स्थिर जाँच हुई; APK चलाकर हर स्क्रीन की जाँच नहीं हुई। विद्यार्थी, पोर्टफोलियो, आकलन, समय-सारणी, भोजन लेखा, रजिस्टर और आवेदन के स्वतंत्र ऑफ़लाइन विकल्प उपलब्ध हैं।','Static inspection covered 74 HTML files and 52 activity names; the APK was not executed to test every screen. Independent offline alternatives cover students, portfolios, assessments, timetables, meal accounting, registers and application drafts.')}</p><h3>${tr('अभी बाकी / आंशिक','Still missing / partial')}</h3><ul><li>${tr('जिला-विशिष्ट प्रमाणित UC/MDCF और हूबहू सरकारी पोर्टफोलियो प्रारूप।','District-specific certified UC/MDCF and exact government portfolio layouts.')}</li><li>${tr('पूरा आधिकारिक baseline/SA प्रश्न बैंक और निर्धारित प्रखर समय-सारणी।','Complete official baseline/SA question banks and prescribed Prakhar schedules.')}</li><li>${tr('Sudoku; सरकारी पोर्टल लॉगिन/जमा करना ऑनलाइन ही है।','Sudoku; government portal login and submission remain online.')}</li><li>${tr('बाहरी PDF ऑफ़लाइन संग्रह और पुराने टूल का एकीकृत बैकअप।','Offline external PDFs and unified backup of legacy tools.')}</li></ul><p>${tr('इसलिए पूर्ण APK समानता या हर जानकारी के नवीनतम होने का दावा नहीं किया गया है।','Complete APK parity and universal freshness are not claimed.')}</p></section></div>`;
+  for (const id of ['home','salary','shivira','training','orders','resources','tools']) {
+    const original = window.PAGES[id];
+    if(original) window.PAGES[id] = (...args) => strip()+original(...args);
+  }
 })();
 
 window.__TB.boot();

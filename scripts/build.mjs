@@ -14,8 +14,8 @@ html = html.replace(
   "window.__TB = {UI,I,svg,LS,",
   "window.__TB = {NAV,UI,I,svg,LS,",
 );
-const css = readFileSync(new URL("src/workspace.css", root), "utf8");
-const js = readFileSync(new URL("src/workspace.js", root), "utf8");
+const css = readFileSync(new URL("src/workspace.css", root), "utf8") + '\n' + readFileSync(new URL("src/theme.css", root), "utf8");
+const js = readFileSync(new URL("src/workspace.js", root), "utf8") + '\n' + readFileSync(new URL("src/verification.js", root), "utf8");
 if (/<\/script/i.test(js))
   throw new Error("Inline script closing tag in workspace source");
 const block = `<!-- TEACHER WORKSPACE START -->\n<style>\n${css}\n</style>\n<script>\n${js}\nwindow.__TB.boot();\n</script>\n<!-- TEACHER WORKSPACE END -->\n`;

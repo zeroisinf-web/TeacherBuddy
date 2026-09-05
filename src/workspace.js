@@ -479,7 +479,7 @@
     return f ? tr(f[2], f[3]) : "";
   };
   function cards(list) {
-    return `<div class="feature-grid">${list.map((f) => `<a class="feature" href="#/${f[0]}" data-feature-text="${esc(f.slice(2, 6).join(" ").toLowerCase())}"><span class="ic" aria-hidden="true">${svg(f[1])}</span><strong>${esc(tr(f[2], f[3]))}</strong><small>${esc(tr(f[4], f[5]))}</small><span class="badge">${tr("ऑफ़लाइन", "Offline")}</span></a>`).join("")}</div>`;
+    return `<div class="feature-grid">${list.map((f) => `<a class="feature" href="#/${f[0]}" data-feature-category="${f[6]}" data-feature-text="${esc(f.slice(2, 6).join(" ").toLowerCase())}"><span class="ic" aria-hidden="true">${svg(f[1])}</span><strong>${esc(tr(f[2], f[3]))}</strong><small>${esc(tr(f[4], f[5]))}</small><span class="badge">${tr("ऑफ़लाइन", "Offline")}</span></a>`).join("")}</div>`;
   }
   function wrap(id, body) {
     return `<div class="tb-work"><div class="status-line"><span>${esc(state.profile.school || tr("मेरा विद्यालय", "My school"))} · ${esc(state.profile.session)}</span><span>${tr("डेटा इस डिवाइस पर रहता है", "Data stays on this device")}</span></div>${id === "home" ? "" : `<div class="mini-nav"><a href="#/home">${tr("← होम", "← Home")}</a><a href="#/students">${title("students")}</a><a href="#/backup">${title("backup")}</a></div><h1 style="margin-bottom:12px">${esc(title(id))}</h1>`}<div id="workspaceError" role="alert">${storageError ? esc(storageError) : ""}</div>${body}</div>`;
@@ -523,8 +523,8 @@
       );
     return wrap(
       "home",
-      `<section class="welcome"><span class="badge">${tr("राजस्थान शिक्षक साथी · ऑफ़लाइन", "For Rajasthan teachers · Offline workspace")}</span><h1>${tr("आज का काम, आसानी से।", "A little less paperwork.\nA little more teaching.")}</h1><p>${tr("उपस्थिति से पोर्टफोलियो तक — आपके विद्यालय का रोज़ का काम, एक सरल जगह पर।", "From attendance to portfolios, keep your school day organised in one simple place.")}</p><a class="btn" href="#/${students().length ? "attendance" : "students"}">${svg("users")}${students().length ? tr("आज की उपस्थिति भरें", "Mark today’s attendance") : tr("शुरू करें: विद्यार्थी जोड़ें", "Start here: add your students")}</a></section>
-${!state.profile.school ? panel(tr("पहली बार उपयोग कर रहे हैं?", "New here?"), `<div class="steps-row"><span><b>1</b>${tr("विद्यालय व सत्र चुनें", "Set school & session")}</span><span><b>2</b>${tr("विद्यार्थी जोड़ें", "Add students")}</span><span><b>3</b>${tr("काम सहेजें और बैकअप लें", "Save your work & back it up")}</span></div><a class="btn" href="#/backup">${tr("विद्यालय सेट करें", "Set up my school")}</a>`) : ""}
+      `<section class="welcome"><div class="hero-label"><span class="rajasthan-flower" aria-hidden="true"></span>${tr("पधारो सा · राजस्थान शिक्षक साथी", "Padharo sa · Made for Rajasthan teachers")}</div><h1>${tr('विद्यालय के हर काम का<br><span class="multicolor-text">एक सरल साथी।</span>', 'More time to teach.<br><span class="multicolor-text">A simpler school day.</span>')}</h1><p>${tr("उपस्थिति, पढ़ाई और विद्यालय के काम—सब व्यवस्थित। आपके लिए आसान, आपके समय का साथी।", "Attendance, learning and school paperwork, thoughtfully organised. Simple tools for the work that matters.")}</p><div class="hero-actions"><a class="btn" href="#/${students().length ? "attendance" : "students"}">${svg("users")}${students().length ? tr("आज की उपस्थिति भरें", "Mark today’s attendance") : tr("विद्यार्थी जोड़कर शुरू करें", "Start with your students")}</a><a class="btn secondary" href="#/resources">${tr("सभी सुविधाएँ", "Explore all resources")}</a></div><div class="hero-footnote"><span class="dot"></span>${tr("ऑफ़लाइन टूल · हिन्दी और English · निःशुल्क", "Offline tools · Hindi & English · Free to use")}</div></section>
+${!state.profile.school ? '<div class="onboarding">'+panel(tr("पहली बार उपयोग कर रहे हैं?", "New here?"), `<div class="steps-row"><span><b>1</b>${tr("विद्यालय व सत्र चुनें", "Set school & session")}</span><span><b>2</b>${tr("विद्यार्थी जोड़ें", "Add students")}</span><span><b>3</b>${tr("काम सहेजें और बैकअप लें", "Save your work & back it up")}</span></div><a class="btn" href="#/backup">${tr("विद्यालय सेट करें", "Set up my school")}</a>`)+'</div>' : ""}
 <div class="stats-row"><div class="stat-card"><b>${students().length}</b><span>${tr("विद्यार्थी", "Students")}</span></div><div class="stat-card"><b>${totals}</b><span>${tr("आज उपस्थित", "Present today")}</span></div><div class="stat-card"><b>${due.length}</b><span>${tr("आज तक करने हैं", "Tasks due")}</span></div></div>
 ${
   due.length
@@ -541,7 +541,7 @@ ${
     : ""
 }
 <div class="list-head"><h2>${tr("आपको क्या करना है?", "What would you like to do?")}</h2>${button(tr("बड़ा अक्षर", "Larger text"), "large", "search")}</div>${input("featureSearch", tr("टूल खोजें — हिन्दी या English", "Find a tool — Hindi or English"), "", "search", 'placeholder="उपस्थिति, attendance, PTM…" class="search-tools"')}
-${cards(features)}<div id="noFeatures" hidden>${empty(tr("कोई टूल नहीं मिला। दूसरा शब्द खोजें।", "No tools found. Try another word."))}</div>
+<div class="filter-pills" role="group" aria-label="${tr('सुविधा वर्ग','Feature categories')}">${[['all','सभी','All tools'],['daily','रोज़ के काम','Daily work'],['classroom','कक्षा व पढ़ाई','Classroom'],['office','विद्यालय कार्यालय','School office']].map(([id,hi,en])=>`<button type="button" data-category="${id}" aria-pressed="${id==='all'}">${tr(hi,en)}</button>`).join('')}</div>${cards(features)}<div id="noFeatures" hidden>${empty(tr("कोई टूल नहीं मिला। दूसरा शब्द खोजें।", "No tools found. Try another word."))}</div>
 ${panel(tr("पहले से मौजूद सभी सुविधाएँ", "All your existing tools"), `<p>${tr("वेतन, अवकाश पत्र, पाठ योजना, सरकारी पोर्टल और अन्य संसाधन।", "Salary, leave letters, lesson planning, government portals and other resources.")}</p><div class="toolbar"><a class="btn" href="#/resources">${tr("सभी संसाधन देखें", "Browse all resources")}</a><a class="btn" href="#/letters">${tr("पत्र बनाएँ", "Create a letter")}</a><a class="btn" href="#/salary">${tr("वेतन कैलकुलेटर", "Salary calculators")}</a><a class="btn" href="#/portals">${tr("सरकारी पोर्टल · इंटरनेट", "Government portals · Internet")}</a></div>`)}
 ${hint(tr("काम सहेजने के लिए “सहेजें” दबाएँ। ब्राउज़र डेटा मिटने पर रिकॉर्ड मिट सकते हैं—नियमित बैकअप लें। सरकारी पोर्टल और बाहरी PDF के लिए इंटरनेट चाहिए।", "Press Save to keep your work. Clearing browser data can erase records—download backups regularly. Government portals and external PDFs need internet."))}`,
     );
@@ -3202,10 +3202,11 @@ ${hint(tr("काम सहेजने के लिए “सहेजें�
   Object.assign(window.PAGE_HOOKS, {
     home() {
       const search = $("#featureSearch");
-      search.addEventListener("input", () => {
+      let category = 'all';
+      const filter = () => {
         let count = 0;
         document.querySelectorAll("[data-feature-text]").forEach((card) => {
-          const hit = card.dataset.featureText.includes(
+          const hit = (category==='all'||card.dataset.featureCategory===category) && card.dataset.featureText.includes(
             search.value.trim().toLowerCase(),
           );
           card.hidden = !hit;
@@ -3213,7 +3214,13 @@ ${hint(tr("काम सहेजने के लिए “सहेजें�
           if (hit) count++;
         });
         $("#noFeatures").hidden = !!count;
-      });
+      };
+      search.addEventListener("input", filter);
+      document.querySelectorAll('[data-category]').forEach(button=>button.addEventListener('click',()=>{
+        category=button.dataset.category;
+        document.querySelectorAll('[data-category]').forEach(b=>b.setAttribute('aria-pressed',String(b===button)));
+        filter();
+      }));
     },
     students: rosterHook,
     attendance: attendanceHook,

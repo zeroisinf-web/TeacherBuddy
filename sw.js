@@ -1,5 +1,5 @@
 /* Offline shell only: never cache third-party resources or form submissions. */
-const CACHE = 'teacherbuddy-v2-134c732f92a6';
+const CACHE = 'teacherbuddy-v2-37c3a821da24';
 const SHELL = ['./', './index.html', './TeacherBuddy.html', './manifest.json', './icon.svg', './icon-192.png', './icon-512.png'];
 self.addEventListener('install', event => {
   event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(SHELL)));
