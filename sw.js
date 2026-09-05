@@ -1,34 +1,31 @@
-/* TeacherBuddy — service worker
-   Network-first for pages so government updates always arrive,
-   with a cache fallback so the site keeps working offline. */
-const CACHE = "teacherbuddy-v1";
-const SHELL = ["./", "./index.html", "./manifest.json"];
-
-self.addEventListener("install", e => {
-  e.waitUntil(caches.open(CACHE).then(c => c.addAll(SHELL)).then(() => self.skipWaiting()));
+/* Offline shell only: never cache third-party resources or form submissions. */
+const CACHE = 'teacherbuddy-v2-134c732f92a6';
+const SHELL = ['./', './index.html', './TeacherBuddy.html', './manifest.json', './icon.svg', './icon-192.png', './icon-512.png'];
+self.addEventListener('install', event => {
+  event.waitUntil(caches.open(CACHE).then(cache => cache.addAll(SHELL)));
+  // Wait for old tabs to close to avoid a mid-form update.
 });
-
-self.addEventListener("activate", e => {
-  e.waitUntil(
-    caches.keys()
-      .then(keys => Promise.all(keys.filter(k => k !== CACHE).map(k => caches.delete(k))))
-      .then(() => self.clients.claim())
-  );
+self.addEventListener('activate', event => {
+  event.waitUntil(caches.keys().then(keys => Promise.all(keys
+    .filter(key => key.startsWith('teacherbuddy-') && key !== CACHE)
+    .map(key => caches.delete(key)))).then(() => self.clients.claim()));
 });
-
-self.addEventListener("fetch", e => {
-  const req = e.request;
-  if (req.method !== "GET") return;
-  const url = new URL(req.url);
-  if (url.origin !== self.location.origin) return;   /* never touch ad or third-party requests */
-
-  e.respondWith(
-    fetch(req)
-      .then(res => {
-        const copy = res.clone();
-        caches.open(CACHE).then(c => c.put(req, copy)).catch(() => {});
-        return res;
-      })
-      .catch(() => caches.match(req).then(hit => hit || caches.match("./index.html")))
-  );
+self.addEventListener('fetch', event => {
+  const request = event.request, url = new URL(request.url);
+  if(request.method !== 'GET' || url.origin !== self.location.origin) return;
+  const shellUrls = SHELL.map(path => new URL(path, self.registration.scope).href);
+  if(!shellUrls.includes(url.href) && request.mode !== 'navigate') return;
+  // Build-generated cache version refreshes the full shell on deployment.
+  event.respondWith(caches.open(CACHE).then(async cache => {
+    const cached = await cache.match(request);
+    if(cached) return cached;
+    try { return await fetch(request); }
+    catch(error) {
+      if(request.mode === 'navigate') {
+        const fallback = await cache.match(new URL('./index.html', self.registration.scope).href);
+        if(fallback) return fallback;
+      }
+      return Response.error();
+    }
+  }));
 });
