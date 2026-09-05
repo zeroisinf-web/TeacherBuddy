@@ -19,7 +19,7 @@ No APK source, question papers, branding, artwork or proprietary templates were 
 | Visitor register, staff and employee activities | Eight register types: visitors, PTM, staff/service, training, bills, stock/library, NILP learners and remedial teaching | Flexible records, not automated payroll, inventory valuation or official service-book processing |
 | PTM, Independence Day and Republic Day assets | Editable bilingual invitations and saved document drafts | User verifies event details |
 | HRA, election OD, provisional admission, NILP, Vidya Sambal, sports application assets | Eleven document draft types, including those workflows and service/probation/salary requests | These are applications/details drafts, not official certificates or prescribed forms |
-| Existing CL, ACP, tax, image resizing and password features | Existing TeacherBuddy tools remain accessible under All resources and original routes | Existing formulas/rates were not re-audited in this change |
+| Existing CL, ACP, tax, image resizing and password features | Existing TeacherBuddy tools remain accessible under All resources and original routes | Salary defaults and limited tax calculations were reviewed in v2.1; see SEPTEMBER-2026-REVIEW.md |
 | Additional teacher needs | Attendance with explicit unmarked status, monthly summaries, deadlines, session isolation, backup/restore, larger text, searchable icon-and-name cards | Reminders appear in-app; no background notifications or cloud sync |
 | Rajasthan-first navigation | Rajasthan work desk: Shala Darpan, CCE/SIQE/Prakhar, PM POSHAN, service and new-session preparation lists | User-chosen target dates; official portal work still requires internet |
 
