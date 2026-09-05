@@ -1,0 +1,12 @@
+{
+  "name": "teacherbuddy",
+  "private": true,
+  "version": "2.0.0",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "test": "node tests/workspace.cjs"
+  },
+  "devDependencies": {
+    "@playwright/test": "1.62.1"
+  }
+}

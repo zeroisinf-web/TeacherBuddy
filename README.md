@@ -3,20 +3,51 @@
 राजस्थान के विद्यालय शिक्षकों के लिए निःशुल्क, ऑफ़लाइन सहायक।
 A free, offline toolkit for Rajasthan school teachers.
 
-**🌐 Live:** https://zeroisinf-web.github.io
+**Repository:** https://github.com/zeroisinf-web/TeacherBuddy
 **⬇️ Offline copy:** [TeacherBuddy.html](TeacherBuddy.html) — right-click → Save link as
 
 ---
 
 ## क्या है यह / What this is
 
-पूरी वेबसाइट **एक ही HTML फ़ाइल** में है। कोई बिल्ड नहीं, कोई फ़्रेमवर्क नहीं, कोई CDN नहीं।
-डाउनलोड करके ऑफ़लाइन चलाइए — बिना इंटरनेट सब कुछ काम करता है, और तब कोई विज्ञापन भी नहीं चलता।
+वेबसाइट **एक ही HTML फ़ाइल** के रूप में चलती है। उपयोग करने के लिए बिल्ड, फ़्रेमवर्क या CDN नहीं चाहिए। नए कार्यस्थल के स्रोत बदलने के बाद `npm run build` चलाएँ।
+टूल ऑफ़लाइन चलते हैं; सरकारी पोर्टल और बाहरी PDF के लिए इंटरनेट चाहिए।
 
-The entire site is **one HTML file** — no build step, no framework, no CDN.
-Download it and run offline; everything works without internet, and no ads run in that mode.
+The app runs as **one HTML file** with no runtime dependencies. The new workspace source is compiled into both HTML copies using `npm run build`. Built files are committed, so no build is needed to open or host them.
+Local tools work offline. External portals, results and linked PDFs require internet.
 
-### 22 खंड / 22 sections
+### नया: राजस्थान ऑफ़लाइन कार्यस्थल / Rajasthan offline workspace
+
+Twelve labelled, searchable feature cards, Hindi/English controls and a larger-text option:
+
+- Shared student roster with bulk name entry, editing and archive/restore.
+- Daily attendance, school holidays, explicit unmarked status, monthly percentages and CSV/print export.
+- Baseline/SA/formative assessment records and linked student portfolios.
+- Meals and milk ledger with monthly openings, receipts, use, spending and balance checks.
+- Weekly timetable with teacher, class and room overlap detection.
+- Original editable Classes 1–5 practice worksheets and separate answer keys.
+- Eight school register types and eleven document/invitation draft types.
+- Tasks, session isolation, validated workspace backup/restore and save-failure protection.
+- Rajasthan work desk for Shala Darpan, CCE/SIQE, Prakhar, PM POSHAN and service preparation.
+
+[Quick-start guide / उपयोग मार्गदर्शिका](docs/WORKSPACE-GUIDE.md) · [CCE Guru comparison and remaining gaps](docs/CCE-GURU-COMPARISON.md)
+
+**Scope:** Forms are editable working drafts, not prescribed government certificates. Meal reports do not reproduce district-specific UC/MDCF layouts. Current Rajasthan orders determine official requirements. Workspace backups cover the new workspace across all sessions; legacy tools retain their separate storage.
+
+### Development and checks
+
+```sh
+npm ci
+npm run build
+npx playwright install chromium
+npm test
+```
+
+Edit `src/workspace.js` and `src/workspace.css` for new workflows. Legacy pages remain in `index.html`, outside the generated workspace markers. The build regenerates `TeacherBuddy.html` and changes the offline cache version. Do not edit the generated workspace block directly.
+
+Tests exercise real browser workflows, persistence, invalid input, backup/restore, conflicting saves, offline reload, mobile layouts and the standalone HTML file. Test artifacts are written next to the repository under `test-artifacts/` and contain only fictional test data.
+
+### पहले से उपलब्ध खंड / Existing resource sections
 
 शिविरा पंचांग · प्रपत्र एवं पत्र जनरेटर · पाठ योजना एवं प्रार्थना सभा · वेतन एवं कर कैलकुलेटर ·
 नवीन सत्र एवं प्रवेश · प्रश्न-पत्र · परिणाम · CCE/SIQE · मध्याह्न भोजन · पुस्तकें एवं पाठ्यक्रम ·
